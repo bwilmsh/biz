@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Outreach HQ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap">
+<style>
+:root{--bg:#0A0A08;--ink:#F3EEE6;--mute:#A89F90;--or:#FF7A2F;--glass:rgba(255,255,255,.06);--gl:rgba(255,255,255,.13);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Manrope,system-ui,sans-serif}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 50% 26%,rgba(214,140,60,.5),transparent 70%),radial-gradient(45% 45% at 12% 85%,rgba(80,92,44,.55),transparent 70%),radial-gradient(40% 40% at 90% 70%,rgba(120,70,30,.35),transparent 70%),linear-gradient(#17130d,#0a0a08);background-size:cover;background-position:center}
+.bg.ph::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(8,8,6,.4),rgba(8,8,6,.82))}
+.app{display:grid;grid-template-columns:64px 1fr;gap:24px;padding:20px;max-width:1400px;margin:0 auto}
+.rail{display:flex;flex-direction:column;gap:10px;align-items:center;padding:12px 8px;background:var(--glass);border:1px solid var(--gl);border-radius:32px;height:fit-content;position:sticky;top:20px;backdrop-filter:blur(18px)}
+.rail button,.rail label{width:42px;height:42px;border-radius:50%;border:0;background:none;color:var(--mute);cursor:pointer;display:grid;place-items:center}
+.rail [aria-current=true]{background:#fff;color:#111}.rail button:hover,.rail label:hover{color:#fff}
+.rail .logo{background:var(--or);color:#111;font-weight:800;font-size:18px}
+:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:8px}
+.me{display:flex;align-items:center;gap:10px;font-size:13px}.av{width:38px;height:38px;border-radius:50%;background:var(--or);color:#111;display:grid;place-items:center;font-weight:800}
+.hero{text-align:center;padding:22px 0 34px}.hero h1{font:600 22px Manrope;margin:0 0 8px}
+#cap{width:min(100%,560px);background:none;border:0;border-bottom:1px solid var(--gl);color:var(--ink);font:500 28px Manrope;text-align:center;padding:6px;outline:0}
+#cap::placeholder{color:var(--mute)}#cap:focus{border-color:var(--or)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:16px}.g{grid-column:4;grid-row:1/span 2}.w2{grid-column:span 2}
+.tile{background:var(--glass);border:1px solid var(--gl);border-radius:24px;padding:18px;backdrop-filter:blur(18px);min-width:0}
+.th{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-weight:600}.th small{margin-left:auto;color:var(--mute);font-size:11px;font-weight:400}
+.ico{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none}
+.big{font:800 38px/1 Manrope;letter-spacing:-.02em}.or{color:var(--or)}.mu{color:var(--mute);font-size:13px}
+.dm{display:flex;gap:10px;align-items:flex-end;margin:16px 0 6px}.dm div,.cols div{display:flex;flex-direction:column-reverse;gap:4px;align-items:center;font-size:11px;color:var(--mute)}
+.dm i{width:11px;height:11px;border-radius:3px;background:rgba(255,255,255,.12)}.dm i.on{background:var(--or);transform:scale(0);transition:transform .4s var(--d)}.go .dm i.on{transform:none}
+.cols{display:flex;gap:10px;align-items:flex-end;margin-top:14px}.cols b{display:block;width:16px;border-radius:5px;background:#F2B544;transform:scaleY(0);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.7,.2,1) var(--d)}.go .cols b{transform:none}
+svg{display:block;width:100%}.ln{fill:none;stroke:var(--or);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2s ease}.go .ln{stroke-dashoffset:0}.ln.b{stroke:#F3EEE6;opacity:.7}
+.tk{stroke:rgba(255,255,255,.2);stroke-width:3;stroke-linecap:round;transition:stroke .3s var(--d)}.go .tk.lit{stroke:var(--or)}
+.nd{transform-origin:150px 150px;transform:rotate(-90deg);transition:transform 1.8s cubic-bezier(.2,.8,.2,1)}.go .nd{transform:rotate(var(--a))}
+.sv{display:flex;gap:8px;justify-content:center;margin-bottom:12px}.sc{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 12px Manrope;border:0;text-decoration:none;cursor:pointer}
+.row3{display:flex;justify-content:space-between;margin-top:14px;text-align:center}.row3 b{display:block;font-size:22px}
+.t2{display:flex;gap:10px;align-items:center;padding:6px 0;cursor:pointer}.t2 input{accent-color:var(--or);width:17px;height:17px}.t2 input:checked+span{text-decoration:line-through;color:var(--mute)}
+.btn{border:0;border-radius:99px;background:var(--or);color:#111;padding:10px 20px;font:700 14px Manrope,sans-serif;cursor:pointer;text-decoration:none;display:inline-block}.btn.t{background:none;color:var(--or);padding:4px 0}.btn.g2{background:rgba(255,255,255,.12);color:var(--ink)}
+.ed{font:inherit;color:inherit;background:none;border:0;border-bottom:1px dashed transparent;border-radius:0;padding:0;margin:0;outline:0;max-width:100%}.ed:hover{border-color:var(--gl)}.ed:focus{border-color:var(--or)}
+select.ed{cursor:pointer}option{color:#111}textarea.ed{width:100%;min-height:130px;border:1px solid var(--gl);border-radius:14px;padding:12px;resize:vertical}
+h2{font:800 clamp(30px,5vw,52px)/1.05 Manrope;letter-spacing:-.03em;margin:6px 0 20px}
+.rw{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px 18px;align-items:center;padding:13px 0;border-bottom:1px solid var(--gl)}.rw:last-child{border:0}
+.rw.c5{grid-template-columns:2fr repeat(4,1fr)}
+form{display:flex;gap:14px 22px;flex-wrap:wrap;align-items:end;margin-bottom:18px}form label{display:grid;gap:2px;font-size:12px;color:var(--mute)}form .ed{font-size:16px;color:var(--ink);border-bottom:1px solid var(--gl)}
+.svr{padding:18px 0;border-bottom:1px solid var(--gl);display:grid;gap:8px}.svr:last-child{border:0}
+.svr .nm{font:800 28px Manrope;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.dot{width:14px;height:14px;border-radius:50%;background:var(--c)}
+.meta{display:flex;gap:8px 28px;flex-wrap:wrap;font-size:13px;color:var(--mute)}.meta .ed{color:var(--ink);font-size:15px}
+.imp{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.cal{grid-column:1/-1}.cw{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+.rv{opacity:0;transform:translateY(40px) scale(.97);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--rd,0s)}.rv.in{opacity:1;transform:none}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--or);z-index:30}
+#trk{position:fixed;inset:0;z-index:95;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}#trk.open{display:flex}
+.trb{width:min(540px,100%);background:rgba(20,17,12,.96);border:1px solid var(--gl);border-radius:24px;padding:20px;max-height:100%;overflow:auto}
+.chips button[aria-pressed=true]{background:var(--or);color:#111;border-color:var(--or)}#ftr{margin:14px 0 0}
+.app>div{min-width:0}.app{overflow-x:clip}
+.svr,.svr .nm,.meta{min-width:0}.svr{grid-template-columns:minmax(0,1fr)}.svr .nm>*,.meta>*{min-width:0;max-width:100%}.svr input,.meta input{max-width:100%}.svr .nm .ed{min-width:0;width:auto}
+@media(max-width:700px){body .app{grid-template-columns:minmax(0,1fr)}body .rail{flex-wrap:wrap}body .rail button,body .rail label{width:38px;height:38px}}
+#ai{position:fixed;top:0;right:0;bottom:0;width:min(420px,100vw);z-index:90;background:rgba(16,14,10,.94);backdrop-filter:blur(22px);border-left:1px solid var(--gl);display:flex;flex-direction:column;padding:calc(16px + env(safe-area-inset-top,0px)) 18px calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(105%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
+#ai.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.aih{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;margin-bottom:10px}.aih .btn{margin-left:auto}
+#aim{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:6px 2px}
+.mg{max-width:88%;padding:10px 14px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}.mg.u{align-self:flex-end;background:var(--or);color:#111}.mg.a{align-self:flex-start;background:rgba(255,255,255,.09)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.chips button{border:1px solid var(--gl);background:none;color:var(--ink);border-radius:99px;padding:6px 12px;font:500 12px Manrope,sans-serif;cursor:pointer}.chips button:hover{border-color:var(--or)}
+.aif{display:flex;gap:8px}.aif input{flex:1;min-width:0;background:rgba(255,255,255,.08);border:1px solid var(--gl);border-radius:99px;color:var(--ink);padding:10px 16px;font:inherit;outline:0}.aif input:focus{border-color:var(--or)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}#ai{transition:none!important}}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.ch{font-size:11px;color:var(--mute);text-align:center}
+.cd{min-height:66px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid transparent;padding:6px;text-align:left;color:inherit;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0}
+.cd:hover{background:rgba(255,255,255,.1)}.cd.td{border-color:var(--or)}.cd.sel{background:rgba(255,122,47,.24)}
+.cd b{font-size:13px}.cd span{font-size:11px;color:var(--mute)}.cd .bk{color:#111;background:var(--or);border-radius:99px;padding:0 7px;align-self:flex-start;font-weight:700}
+@media(max-width:900px){.cw{grid-template-columns:1fr}}@media(max-width:700px){.cd{min-height:54px;padding:4px}.cd span{font-size:9px}}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#fff;color:#111;padding:10px 20px;border-radius:99px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s;z-index:200}.toast.show{opacity:1}
+#ov{position:fixed;inset:0;z-index:100;overflow-y:auto;scroll-snap-type:y mandatory;background:#0E0D0A;color:#fff;display:none}#ov.open{display:block}
+.sl{height:100vh;height:100dvh;scroll-snap-align:start;display:flex;align-items:center;padding:calc(70px + env(safe-area-inset-top,0px)) clamp(20px,8vw,120px) 40px;background:var(--b2,#0E0D0A)}
+.sl h2{font-size:clamp(46px,10vw,130px);margin:0 0 20px}.sl p{font-size:clamp(18px,2.4vw,28px);margin:0 0 20px;max-width:30ch}
+.sl .big{font-size:clamp(40px,8vw,100px);margin-bottom:20px}.sl small{font-size:.35em;font-weight:500;opacity:.8}
+.sl ul{list-style:none;padding:0;margin:0 0 24px;font-size:clamp(18px,2.2vw,26px)}.sl li{margin-bottom:8px}.sl .btn{background:#fff;color:#111}
+.sl .ed{color:#fff;font:800 clamp(40px,9vw,110px)/1 Manrope;border-bottom:2px dashed rgba(255,255,255,.4);width:100%}
+.sl .a>*{opacity:0;transform:translateY(34px);transition:opacity .7s,transform .7s}.sl.in .a>*{opacity:1;transform:none}
+.sl.in .a>:nth-child(2){transition-delay:.12s}.sl.in .a>:nth-child(3){transition-delay:.24s}.sl.in .a>:nth-child(4){transition-delay:.36s}
+.x{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:22px;z-index:101;background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:99px;padding:9px 18px;font:600 14px Manrope,sans-serif;cursor:pointer}
+@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.g{grid-column:auto;grid-row:auto}}
+@media(max-width:700px){.app{grid-template-columns:1fr;padding:12px}.rail{flex-direction:row;position:sticky;top:8px;z-index:10;justify-content:center;padding:8px}.grid{grid-template-columns:1fr}.w2{grid-column:auto}.rw,.rw.c5{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.dm i.on,.cols b,.ln,.tk,.nd,.sl .a>*{transition:none!important;transform:none!important;opacity:1!important;stroke-dashoffset:0!important}.nd{transform:rotate(var(--a))!important}.tk.lit{stroke:var(--or)}}
+</style>
+</head>
+<body>
+<div class="bg" id="bg"></div>
+<div id="prog"></div>
+<div id="trk" role="dialog" aria-modal="true" aria-label="Track something"><div class="trb"><div class="aih">Track something<button type="button" class="btn g2" id="trx">Close</button></div><div class="chips" id="trt"></div><form id="ftr"></form></div></div>
+<aside id="ai" role="dialog" aria-label="AI help"><div class="aih"><span class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></span>AI help<button class="btn g2" id="aix">Close</button></div><div id="aim" aria-live="polite"></div><div class="chips" id="aic"></div><div class="aif"><input id="aiq" placeholder="Ask about your dashboard or outreach" aria-label="Ask AI help" autocomplete="off"><button class="btn" id="ais">Send</button></div></aside>
+<div class="app" id="app"></div>
+<div id="ov" role="dialog" aria-label="Customer presentation"></div>
+<div class="toast" id="toast" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+const PAL=['#0F8B8D','#C9731F','#4C6FB5','#A5528B','#5F9433','#B84A4A'],ST=['Lead','Active','Paused'],OUT=['To call','No answer','Call back','Booked','Not interested'];
+const sv=(i,n,p,t,b,r,u)=>({id:'s'+i,n,p,t,b,r,u:u||'/month',link:'',col:PAL[i-1]});
+const DEF={name:'Benji',role:'Agency founder',agency:'Your Agency',client:'',goal:15000,target:30,bg:'',
+script:'Hi, is that [name]? It’s Benji from [agency]. I’ll be quick: we help local businesses stop missing calls and fill their diary. Do you have 30 seconds?',
+week:{sent:[40,55,48,72,66,30,45],replies:[4,6,5,8,7,3,5],booked:[1,2,1,3,2,1,2],calls:[18,25,22,30,27,12,20]},
+svcs:[sv(1,'AI Receptionist',497,'Never miss a call or a booking again','Answers calls 24/7,Texts back missed calls,Books into your calendar','3x more booked appointments'),sv(2,'Paid Ads',1200,'Ads that bring in booked jobs, not clicks','Google and Meta campaigns,Weekly reporting,Landing pages included','Cost per lead down 41%'),sv(3,'Local SEO',750,'Be the first business people find nearby','Google profile tuning,Review automation,Monthly ranking report','Top 3 map rank in 90 days'),sv(4,'Social Content',900,'A month of posts, done for you','Content calendar,Short video edits,Community replies','2x monthly reach'),sv(5,'Websites',2500,'A fast site built to convert','Custom design,Booking and forms,Hosting and care','Load time under 2 seconds',' one-off')],
+clients:[['Whitfield Dental','Dana Whitfield','s1','Active',497],['Lee Plumbing','Marcus Lee','s2','Active',1200],['Nair Physio','Priya Nair','s3','Active',750],['Reyes Bakery','Sofia Reyes','s4','Lead',900],['Moore Legal','Ella Moore','s5','Lead',2500],['Dunn Roofing','Jack Dunn','s2','Active',1200]].map(r=>({n:r[0],co:r[1],svc:r[2],st:r[3],val:r[4]})),
+calls:[{n:'Tom Barrett',co:'Barrett Auto',out:'Booked',note:'Demo Tuesday 10am'},{n:'Amy Park',co:'Park Vets',out:'Call back',note:'Try after lunch'},{n:'Ben Cole',co:'Cole Electrical',out:'No answer',note:''}],
+camps:[{n:'Missed-call text back',svc:'s1',ch:'SMS',sent:240,op:231,re:58,bk:19},{n:'Spring ad audit offer',svc:'s2',ch:'Email',sent:680,op:344,re:41,bk:12}],
+tasks:[{t:'Follow up with Reyes Bakery',d:0},{t:'Send ad audit to Lee Plumbing',d:0},{t:'Call 20 new leads',d:0}]};
+let D;try{D=JSON.parse(localStorage.getItem('ohq3'))||structuredClone(DEF)}catch(e){D=structuredClone(DEF)}
+const $=s=>document.querySelector(s),save=()=>{try{localStorage.setItem('ohq3',JSON.stringify(D))}catch(e){toast('Could not save on this device')}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fm=(n,f)=>f==='$'?'$'+(+n).toLocaleString('en-US'):f==='%'?n+'%':(+n).toLocaleString('en-US');
+const url=l=>l?(/^https?:\/\//i.test(l)?l:'https://'+l):'',pct=(a,b)=>b?Math.round(a/b*100):0,sc=id=>D.svcs.find(s=>s.id===id)||{n:'Removed service',col:'#888'},sum=a=>a.reduce((x,y)=>x+y,0);
+const getP=p=>p.split('.').reduce((o,k)=>o[k],D);
+function setP(p,v){const k=p.split('.'),l=k.pop(),o=k.reduce((x,y)=>x[y],D);if(Array.isArray(o[l]))o[l]=Array.from({length:7},(_,i)=>parseFloat(String(v).split(',')[i])||0);else o[l]=typeof o[l]==='number'?(parseFloat(String(v).replace(/[^0-9.]/g,''))||0):v}
+const ed=(p,v,c,ph)=>`<input class="ed ${c||''}" data-p="${p}" value="${esc(v)}" size="${Math.max(3,String(v).length+1)}" placeholder="${ph||''}" aria-label="${ph||p}">`;
+const sel=(p,v,o)=>`<select class="ed" data-p="${p}" aria-label="${p}">${o.map(([k,l])=>`<option value="${k}" ${k==v?'selected':''}>${esc(l)}</option>`).join('')}</select>`;
+const IC={home:'<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>',users:'<path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8M22 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/>',phone:'<path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/>',send:'<path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>',grid:'<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>',img:'<path d="M3 5h18v14H3zM3 16l5-5 5 5 3-3 5 5"/>',chk:'<path d="M4 12l5 5L20 6"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>'};
+const ic=n=>`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px">${IC[n]}</svg>`;
+const num=(n,f)=>`<span class="num" data-n="${n}" data-f="${f||''}">${fm(n,f)}</span>`;
+const sm=(v,w,h,mx)=>{const p=v.map((n,i)=>[i*w/(v.length-1),h-n/mx*h*.85-4]);return p.map((q,i)=>i?`C${(p[i-1][0]+q[0])/2} ${p[i-1][1]} ${(p[i-1][0]+q[0])/2} ${q[1]} ${q[0]} ${q[1]}`:`M${q[0]} ${q[1]}`).join('')};
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('show'),2200)}
+let view='Home';const VW=[['Home','home'],['Clients','users'],['Calls','phone'],['Outreach','send'],['Services','grid']];
+const so=()=>D.svcs.map(s=>[s.id,s.n]),opts=()=>so().map(o=>`<option value="${o[0]}">${esc(o[1])}</option>`).join('');
+function home(){const W=D.week,L=[0,1,2,3,4,5,6].map(i=>new Date(Date.now()-864e5*(6-i)).toLocaleDateString('en',{weekday:'narrow'})),sent=sum(W.sent),rep=sum(W.replies),rate=sent?Math.round(rep/sent*1000)/10:0,today=W.calls[6]||0,
+mrr=D.clients.filter(c=>c.st==='Active').reduce((a,c)=>a+c.val,0),pg=Math.min(100,Math.round(mrr/Math.max(1,D.goal)*100)),score=Math.round(40*Math.min(1,mrr/Math.max(1,D.goal))+30*Math.min(1,today/Math.max(1,D.target))+30*Math.min(1,rate/10)),
+mx=a=>Math.max(1,...a),left=D.tasks.filter(t=>!t.d).length;
+const dm=W.sent.map((v,i)=>`<div>${Array.from({length:6},(_,k)=>`<i class="${k<Math.round(v/mx(W.sent)*6)?'on':''}" style="--d:${i*70+k*35}ms"></i>`).join('')}<span>${L[i]}</span></div>`).join('');
+const cols=W.replies.map((v,i)=>`<div><b style="height:${Math.max(6,v/mx(W.replies)*72)}px;--d:${i*80}ms"></b><span>${L[i]}</span></div>`).join('');
+let tk='';for(let i=0;i<=40;i++){const r=(-90+i*4.5)*Math.PI/180,s=Math.sin(r),c=Math.cos(r);tk+=`<line class="tk${i/40*100<=pg?' lit':''}" style="--d:${i*35}ms" x1="${150+s*112}" y1="${150-c*112}" x2="${150+s*130}" y2="${150-c*130}"/>`}
+const lbl=score>=80?'Strong week':score>=55?'On track':'Needs a push';
+return `<div class="hero"><h1>Hey ${esc(D.name)}, what’s next?</h1><input id="cap" placeholder="Just add anything…" aria-label="Add a task, press Enter"><div class="mu" style="margin-top:6px">Press Enter to add it to today’s tasks</div></div>
+<div class="grid">
+<div class="tile"><div class="th"><span class="ico">${ic('send')}</span>Outreach<small>Last 7 days</small></div><div class="big">${num(sent)}</div><div class="dm">${dm}</div><div class="mu">${rep} replies · ${sum(W.booked)} booked</div></div>
+<div class="tile"><div class="th"><span class="ico">${ic('phone')}</span>Cold calls<small>Last 7 days</small></div><div class="big">${num(today)}<span class="mu"> / ${D.target} today</span></div><svg viewBox="0 0 300 90" style="margin-top:14px"><path class="ln" pathLength="1" d="${sm(W.calls,300,90,mx(W.calls))}"/></svg><div class="mu">${sum(W.calls)} calls this week</div></div>
+<div class="tile"><div class="th"><span class="ico">${ic('users')}</span>Replies<small>Last 7 days</small></div><div class="big">${num(rep)}</div><div class="cols">${cols}</div><div class="mu" style="margin-top:8px">Reply rate ${rate}%</div></div>
+<div class="tile g"><div class="sv">${D.svcs.slice(0,6).map(s=>{const i=s.n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase(),st=`background:${s.col}`;return s.link?`<a class="sc" style="${st}" href="${esc(url(s.link))}" target="_blank" rel="noopener" title="Open ${esc(s.n)} in GoHighLevel" aria-label="Open ${esc(s.n)} in GoHighLevel">${i}</a>`:`<button class="sc" style="${st}" data-a="go" data-v="Services" title="Add a GoHighLevel link for ${esc(s.n)}" aria-label="Add a GoHighLevel link for ${esc(s.n)}">${i}</button>`}).join('')}</div>
+<svg viewBox="0 0 300 170">${tk}<g class="nd" style="--a:${-90+pg*1.8}deg"><path d="M150 150L146.5 100 150 48 153.5 100Z" fill="#fff"/></g><circle cx="150" cy="150" r="6" fill="#fff"/></svg>
+<div style="text-align:center"><div class="big">${num(pg,'%')}</div><div style="margin:6px 0">Monthly revenue goal</div><div class="mu">${fm(mrr,'$')} of $${ed('goal',D.goal,'','Goal')} a month</div><div style="margin-top:18px"><button class="btn" data-a="present">Present to a customer</button></div></div></div>
+<div class="tile w2"><div class="th"><span class="ico">${ic('chk')}</span>Business score<small>Revenue, calls and replies</small></div><div style="display:flex;gap:24px;align-items:end;flex-wrap:wrap"><div><div class="big or">${num(score)}</div><div style="font-weight:600">${lbl}</div></div><div class="mu">Revenue goal 40% · calls target 30% · reply rate vs 10% 30%</div></div>
+<svg viewBox="0 0 600 110" style="margin:10px 0"><path class="ln" pathLength="1" d="${sm(W.sent,600,110,mx(W.sent))}"/><path class="ln b" pathLength="1" d="${sm(W.calls,600,110,mx(W.calls))}"/></svg>
+<div class="row3"><div><b>${D.clients.filter(c=>c.st==='Active').length}</b><span class="mu">Active clients</span></div><div><b>${D.clients.filter(c=>c.st==='Lead').length}</b><span class="mu">Open leads</span></div><div><b>${rate}%</b><span class="mu">Reply rate</span></div><div><b>${fm(mrr,'$')}</b><span class="mu">Monthly revenue</span></div></div></div>
+<div class="tile"><div class="th"><span class="ico">${ic('chk')}</span>Today’s tasks<small>${left} left</small></div>${D.tasks.map((t,i)=>`<label class="t2"><input type="checkbox" data-t="${i}" ${t.d?'checked':''}><span>${esc(t.t)}</span></label>`).join('')||'<div class="mu">Nothing yet. Type above and press Enter.</div>'}<button class="btn t" data-a="clr" style="margin-top:8px">Clear done</button></div>${cal()}</div>`}
+let calM=new Date(),calSel=null;
+const pad=n=>String(n).padStart(2,'0'),dstr=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+function dayData(ds){const diff=Math.round((new Date(dstr(new Date()))-new Date(ds))/864e5);if(diff>=0&&diff<=6){const i=6-diff;return{calls:D.week.calls[i],booked:D.week.booked[i]}}return(D.log&&D.log[ds])||{calls:0,booked:0}}
+function roll(){const W=D.week,t=dstr(new Date());D.log=D.log||{};D.calls.forEach(c=>{if(c.out==='Booked'&&!c.bd){c.bd=dstr(new Date(Date.now()+864e5));c.bt=c.bt||'10:00'}});if(!D.wk){D.wk=t;save();return}const n=Math.round((new Date(t)-new Date(D.wk))/864e5);if(n>0){for(let s=0;s<Math.min(n,60);s++){const od=new Date(new Date(D.wk).getTime()+(s-6)*864e5).toISOString().slice(0,10);if(W.calls[0]||W.booked[0])D.log[od]={calls:W.calls[0],booked:W.booked[0]};['sent','replies','booked','calls'].forEach(k=>{W[k].shift();W[k].push(0)})}D.wk=t}save()}
+function cal(){const t=dstr(new Date()),y=calM.getFullYear(),m=calM.getMonth(),start=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate(),sel=calSel||t,mn=calM.toLocaleDateString('en-AU',{month:'long',year:'numeric'}),
+bk=ds=>D.calls.filter(c=>c.out==='Booked'&&c.bd===ds).sort((a,b)=>(a.bt||'').localeCompare(b.bt||''));
+let cells=['M','T','W','T','F','S','S'].map(d=>`<div class="ch">${d}</div>`).join('')+'<div></div>'.repeat(start);
+for(let d=1;d<=days;d++){const ds=y+'-'+pad(m+1)+'-'+pad(d),dd=dayData(ds),b=bk(ds).length;cells+=`<button class="cd${ds===t?' td':''}${ds===sel?' sel':''}" data-a="cd" data-d="${ds}" aria-label="${d} ${mn}: ${dd.calls||0} calls made, ${b} booked calls"><b>${d}</b>${dd.calls?`<span>${dd.calls} calls</span>`:''}${b?`<span class="bk">${b} booked</span>`:''}</button>`}
+const dd=dayData(sel),bl=bk(sel),cl=D.calls.filter(c=>c.cd===sel&&c.out!=='To call'),lab=new Date(sel+'T00:00:00').toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long'});
+return `<div class="tile cal"><div class="th"><span class="ico">${ic('chk')}</span>Calendar<small>Calls made and booked calls</small></div><div class="cw"><div><div class="top" style="margin-bottom:12px"><b style="font-size:18px">${mn}</b><span><button class="btn g2" data-a="cm" data-d="-1" aria-label="Previous month">Prev</button> <button class="btn g2" data-a="ct">Today</button> <button class="btn g2" data-a="cm" data-d="1" aria-label="Next month">Next</button></span></div><div class="cg">${cells}</div></div>
+<div><div style="font-weight:700">${lab}</div><div class="big or" style="margin-top:8px">${dd.calls||0}</div><div class="mu">calls made · ${dd.booked||0} booked from calls</div>
+<div style="font-weight:700;margin:16px 0 4px">Booked calls</div>${bl.map(c=>`<div class="t2" style="cursor:default"><b>${esc(c.bt||'')}</b><span>${esc(c.n)}${c.co?' · '+esc(c.co):''}</span></div>`).join('')||'<div class="mu">None scheduled.</div>'}
+<div style="font-weight:700;margin:16px 0 4px">Called this day</div>${cl.map(c=>`<div class="t2" style="cursor:default"><span>${esc(c.n)}</span><span class="mu">${esc(c.out)}</span></div>`).join('')||'<div class="mu">No contacts logged.</div>'}
+<form id="fbk" style="margin:16px 0 0"><input type="hidden" name="d" value="${sel}"><label>Name<input class="ed" name="n" required size="10"></label><label>Business<input class="ed" name="co" size="10"></label><label>Time<input class="ed" name="t" type="time" value="10:00"></label><button class="btn">Add booked call</button></form></div></div></div>`}
+function clients(){const mrr=D.clients.filter(c=>c.st==='Active').reduce((a,c)=>a+c.val,0);return `<h2>Clients</h2><div class="tile"><p class="mu">${fm(mrr,'$')} a month from active clients. Edit anything in place.</p><form id="fcl"><label>Business<input class="ed" name="n" required></label><label>Contact<input class="ed" name="co"></label><label>Service<select class="ed" name="s">${opts()}</select></label><label>Monthly value ($)<input class="ed" name="v" inputmode="numeric" size="6"></label><button class="btn">Add client</button></form>
+${D.clients.map((c,i)=>`<div class="rw"><div><b>${ed('clients.'+i+'.n',c.n,'','Business')}</b><br>${ed('clients.'+i+'.co',c.co,'mu','Contact')}</div><div>${sel('clients.'+i+'.svc',c.svc,so())}</div><div>${sel('clients.'+i+'.st',c.st,ST.map(s=>[s,s]))}</div><div>$${ed('clients.'+i+'.val',c.val,'','Value')}</div><button class="btn t" data-a="rmc" data-i="${i}">Remove</button></div>`).join('')}</div>`}
+let PEND=[],DUP=0;
+const ckey=c=>((c.ph||'').replace(/\D/g,'')||(c.n+'|'+c.co)).toLowerCase();
+function rowsToContacts(rows){rows=rows.filter(r=>r&&r.some(x=>String(x==null?'':x).trim()));PEND=[];DUP=0;if(!rows.length)return;
+const h=rows[0].map(x=>String(x==null?'':x).toLowerCase()),f=re=>h.findIndex(x=>re.test(x));
+let n=f(/\b(name|contact|person|owner)\b/),co=f(/\b(business|company|organi[sz]ation|account)\b/),ph=f(/\b(phone|mobile|cell|tel|telephone|number)\b/);const hdr=n>-1||co>-1||ph>-1;
+if(!hdr){n=0;co=1;ph=2}else if(n<0&&co<0)n=0;
+const seen=new Set(D.calls.map(ckey));
+rows.slice(hdr?1:0).forEach(r=>{const g=i=>i>-1&&r[i]!=null?String(r[i]).trim():'',c={n:g(n)||g(co)||g(ph),co:g(n)?g(co):'',ph:g(ph),out:'To call',note:''};if(!c.n)return;const k=ckey(c);if(seen.has(k)){DUP++;return}seen.add(k);PEND.push(c)});PEND=PEND.slice(0,500)}
+function readFile(f){if(typeof XLSX==='undefined')return toast('The spreadsheet reader did not load. Paste your rows instead.');const r=new FileReader();r.onload=()=>{try{const wb=XLSX.read(r.result,{type:'array'});rowsToContacts(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{header:1,defval:''}));render(false);toast(PEND.length?PEND.length+' new contacts found':'No new contacts found in that file')}catch(e){toast('Could not read that file')}};r.readAsArrayBuffer(f)}
+const pvHtml=()=>`<p><b>${PEND.length} new contacts found</b>${DUP?` · ${DUP} already on your list, skipped`:''}</p><p class="mu">${PEND.slice(0,3).map(p=>esc(p.n)).join(', ')}${PEND.length>3?' and more':''}</p><button class="btn" data-a="imp">Add ${PEND.length} to call list</button> <button class="btn t" data-a="pcl">Cancel</button>`;
+function calls(){const L=D.calls,cnt=o=>L.filter(c=>c.out===o).length;return `<h2>Cold calling</h2><div class="tile"><div class="th">Add contacts<small>${L.length} on your list · ${cnt('To call')} to call · ${cnt('Booked')} booked</small></div>
+<form id="fca"><label>Name<input class="ed" name="n" required></label><label>Business<input class="ed" name="co"></label><label>Phone<input class="ed" name="ph" inputmode="tel"></label><button class="btn">Add to list</button></form>
+<div class="th" style="margin-top:8px">Import a spreadsheet</div><div class="imp"><button type="button" class="btn g2" data-a="pick">Choose Excel or CSV file</button><input type="file" id="xf" accept=".xlsx,.xls,.csv" hidden><span class="mu">Google Sheets: copy your cells and paste below, or download the sheet as Excel and choose the file.</span></div>
+<textarea class="ed" id="pz" placeholder="Name, Business, Phone. One contact per row, pasted straight from your sheet." aria-label="Paste rows from a spreadsheet" style="min-height:90px"></textarea>
+<div class="imp" style="margin-top:10px"><button class="btn" data-a="pz">Preview pasted rows</button><label class="t2" style="margin:0"><input type="checkbox" id="co" ${D.countOut!==false?'checked':''}><span>Count new contacts in today’s outreach total</span></label></div><div id="pv">${PEND.length?pvHtml():''}</div></div>
+<div class="tile" style="margin-top:16px"><p class="mu">Daily target: ${ed('target',D.target,'','Target')} calls. A call counts toward today’s total when you change a contact from To call to an outcome.</p>
+${L.slice(0,60).map((c,i)=>`<div class="rw c5"><div><b>${esc(c.n)}</b><br><span class="mu">${esc(c.co)}${c.ph?` · <a href="tel:${esc(c.ph.replace(/[^0-9+]/g,''))}" style="color:var(--or)">${esc(c.ph)}</a>`:''}</span></div><div>${sel('calls.'+i+'.out',c.out,OUT.map(o=>[o,o]))}</div><div style="grid-column:span 2">${ed('calls.'+i+'.note',c.note,'','Add a note')}${c.out==='Booked'?`<div class="mu" style="margin-top:4px">Booked for <input type="date" class="ed" data-p="calls.${i}.bd" value="${esc(c.bd||'')}" aria-label="Booked date"> <input type="time" class="ed" data-p="calls.${i}.bt" value="${esc(c.bt||'')}" aria-label="Booked time"></div>`:''}</div><button class="btn t" data-a="rmk" data-i="${i}">Remove</button></div>`).join('')}${L.length>60?`<p class="mu">Showing the first 60 of ${L.length}.</p>`:''}</div><div class="tile" style="margin-top:16px"><div class="th">Call script</div><textarea class="ed" data-p="script" aria-label="Call script">${esc(D.script)}</textarea></div>`}
+function outreach(){const W=D.week;return `<h2>Outreach</h2><div class="tile"><div class="th">This week, oldest day first. Separate the 7 numbers with commas.</div>${[['sent','Messages sent'],['replies','Replies'],['booked','Calls booked'],['calls','Cold calls']].map(a=>`<div class="rw" style="grid-template-columns:1fr 2fr"><span>${a[1]}</span>${ed('week.'+a[0],W[a[0]].join(','),'','7 numbers')}</div>`).join('')}</div>
+<div class="tile" style="margin-top:16px"><form id="fc"><label>Campaign<input class="ed" name="n" required></label><label>Service<select class="ed" name="s">${opts()}</select></label><label>Channel<select class="ed" name="c"><option>Email</option><option>SMS</option></select></label><label>Audience<input class="ed" name="a" inputmode="numeric" value="200" size="6"></label><button class="btn">Log campaign</button></form>
+${D.camps.map((k,i)=>`<div class="rw c5"><div><b>${esc(k.n)}</b><br><span class="mu">${esc(sc(k.svc).n)} · ${k.ch}</span></div><div class="mu">Sent<br>${ed('camps.'+i+'.sent',k.sent)}</div><div class="mu">Opened<br>${ed('camps.'+i+'.op',k.op)} (${pct(k.op,k.sent)}%)</div><div class="mu">Replies<br>${ed('camps.'+i+'.re',k.re)} (${pct(k.re,k.sent)}%)</div><div class="mu">Booked<br>${ed('camps.'+i+'.bk',k.bk)}</div></div>`).join('')}</div>`}
+function services(){return `<h2>Services</h2><div class="tile"><div class="row3" style="justify-content:flex-start;gap:24px;align-items:center;margin:0 0 6px"><span class="mu">Agency name in presentation</span>${ed('agency',D.agency,'','Agency')}<button class="btn" data-a="present">Present to a customer</button></div><p class="mu">Paste each service’s GoHighLevel link. It opens from the home screen circles and the presentation.</p>
+${D.svcs.map((s,i)=>`<div class="svr" style="--c:${s.col}"><div class="nm"><span class="dot"></span>${ed('svcs.'+i+'.n',s.n,'','Service name')}<span style="font-size:18px;font-weight:600">$${ed('svcs.'+i+'.p',s.p,'','Price')}${ed('svcs.'+i+'.u',s.u,'','Unit')}</span></div><div>${ed('svcs.'+i+'.t',s.t,'','Tagline')}</div>
+<div class="meta"><span>Includes ${ed('svcs.'+i+'.b',s.b,'','Benefits, comma separated')}</span><span>Result ${ed('svcs.'+i+'.r',s.r,'','Result you deliver')}</span></div>
+<div class="meta"><span>GoHighLevel link ${ed('svcs.'+i+'.link',s.link,'','Paste your link')}</span>${s.link?`<a class="btn t" href="${esc(url(s.link))}" target="_blank" rel="noopener">Open in GoHighLevel</a>`:''}<button class="btn t" data-a="rm" data-i="${i}">Remove</button></div></div>`).join('')}<button class="btn g2" data-a="add" style="margin-top:14px">Add a service</button></div>`}
+function render(anim){const body={Home:home,Clients:clients,Calls:calls,Outreach:outreach,Services:services}[view]();const app=$('#app');app.classList.remove('go');
+app.innerHTML=`<aside class="rail"><button class="logo" data-a="go" data-v="Home" aria-label="Home">${esc(D.name.slice(0,1)||'H')}</button>${VW.map(v=>`<button data-a="go" data-v="${v[0]}" title="${v[0]}" aria-label="${v[0]}" ${v[0]===view?'aria-current="true"':''}>${ic(v[1])}</button>`).join('')}<button data-a="ai" title="AI help" aria-label="AI help" style="color:var(--or)">${ic('spark')}</button><label title="Change background" aria-label="Change background" tabindex="0">${ic('img')}<input type="file" accept="image/*" id="bgf" hidden></label></aside>
+<div><div class="top"><div class="mu">${new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long'})}</div><div class="me"><button class="btn" data-a="trk" aria-label="Track something" title="Track a call, contact, outreach, client or task" style="width:40px;height:40px;padding:0;font-size:24px;line-height:1">+</button><div><div>${ed('name',D.name,'','Your name')}</div><div class="mu">${ed('role',D.role,'mu','Role')}</div></div><div class="av">${esc(D.name.slice(0,1)||'H')}</div></div></div>${body}</div>`;
+const b=$('#bg');b.style.backgroundImage=D.bg?`url(${D.bg})`:'';b.classList.toggle('ph',!!D.bg);
+const els=[...app.querySelectorAll('.tile,.hero,h2')];io.disconnect();
+if(!anim||RM){app.classList.add('go');els.forEach(e=>e.classList.add('in'));return}
+els.forEach((e,i)=>{e.classList.add('rv');e.style.setProperty('--rd',(i%4)*.08+'s');io.observe(e)})}
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in','go');count(e.target);io.unobserve(e.target)}}),{threshold:.12});
+function count(root){(root||document).querySelectorAll('.num').forEach(n=>{const t=+n.dataset.n,f=n.dataset.f;if(RM||!t)return;const s=performance.now();(function st(now){const p=Math.min(1,(now-s)/1100);n.textContent=fm(Math.round(t*(1-Math.pow(1-p,3))),f);if(p<1)requestAnimationFrame(st)})(s)})}
+function commit(t,ri){const p=t.dataset.p;if(String(getP(p))===t.value)return;const mo=p.match(/^calls\.(\d+)\.out$/);if(mo){const c=D.calls[+mo[1]],W=D.week;if(c.out==='To call'&&t.value!=='To call'){W.calls[6]++;c.cd=dstr(new Date())}if(t.value==='Booked'){if(c.out!=='Booked')W.booked[6]++;c.bd=c.bd||dstr(new Date(Date.now()+864e5));c.bt=c.bt||'10:00';c.cd=c.cd||dstr(new Date())}}setP(p,t.value);save();render(false);if(ri>=0){const n=document.querySelectorAll('[data-p]')[ri];if(n)n.focus()}}
+document.addEventListener('focusout',e=>{const t=e.target;if(!t.dataset||!t.dataset.p||t.tagName==='SELECT')return;const r=e.relatedTarget,all=[...document.querySelectorAll('[data-p]')];commit(t,r&&r.dataset&&r.dataset.p?all.indexOf(r):-1)});
+document.addEventListener('change',e=>{const t=e.target;if((t.tagName==='SELECT'||t.type==='date'||t.type==='time')&&t.dataset.p)commit(t,-1);else if(t.id==='xf'&&t.files[0])readFile(t.files[0]);else if(t.id==='co'){D.countOut=t.checked;save()}else if(t.dataset&&t.dataset.t!==undefined){D.tasks[+t.dataset.t].d=t.checked?1:0;save();render(false)}else if(t.id==='bgf'&&t.files[0]){const im=new Image(),u=URL.createObjectURL(t.files[0]);im.onload=()=>{const k=Math.min(1,1400/im.width),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);D.bg=c.toDataURL('image/jpeg',.7);save();render(false);toast('Background updated')};im.src=u}});
+document.addEventListener('keydown',e=>{const t=e.target;if(e.key==='Enter'&&t.id==='cap'&&t.value.trim()){D.tasks.unshift({t:t.value.trim(),d:0});save();render(false);toast('Added to today’s tasks')}else if(e.key==='Enter'&&t.dataset&&t.dataset.p&&t.tagName==='INPUT')t.blur();
+const o=$('#ov');if(!o.classList.contains('open'))return;if(e.key==='Escape')return closeP();if(t.tagName==='INPUT')return;const d={ArrowDown:1,ArrowRight:1,PageDown:1,' ':1,ArrowUp:-1,ArrowLeft:-1,PageUp:-1}[e.key];if(!d)return;e.preventDefault();const h=o.clientHeight;o.scrollTo({top:Math.max(0,Math.round(o.scrollTop/h)+d)*h,behavior:'smooth'})});
+document.addEventListener('submit',e=>{e.preventDefault();const f=e.target,d=Object.fromEntries(new FormData(f)),W=D.week;if(f.id==='ftr'){trkSubmit(d);return}
+if(f.id==='fcl')D.clients.unshift({n:d.n,co:d.co,svc:d.s,st:'Lead',val:parseFloat(d.v)||0});
+else if(f.id==='fca'){D.calls.unshift({n:d.n,co:d.co,ph:d.ph,out:'To call',note:''});if(D.countOut!==false)W.sent[6]++}
+else if(f.id==='fbk'){D.calls.unshift({n:d.n,co:d.co,ph:'',out:'Booked',note:'',bd:d.d,bt:d.t||'10:00',cd:''});calSel=d.d}
+else{const a=parseFloat(d.a)||0;D.camps.unshift({n:d.n,svc:d.s,ch:d.c,sent:a,op:Math.round(a*.5),re:Math.round(a*.08),bk:Math.round(a*.02)});W.sent[6]+=a}
+save();render(false);toast({fcl:'Client added',fca:'Added to call list',fbk:'Booked call added',fc:'Campaign logged'}[f.id])});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a;
+if(a==='go'){view=b.dataset.v;render(true);scrollTo(0,0)}else if(a==='present')present();else if(a==='close')closeP();
+else if(a==='add'){D.svcs.push({id:'s'+Date.now(),n:'New service',p:500,t:'What this does for the customer',b:'First benefit,Second benefit',r:'',u:'/month',link:'',col:PAL[D.svcs.length%PAL.length]});save();render(false);toast('Service added')}
+else if(a==='rm'){if(D.svcs.length<2)return toast('Keep at least one service');D.svcs.splice(+b.dataset.i,1);save();render(false);toast('Service removed')}else if(a==='rmc'){D.clients.splice(+b.dataset.i,1);save();render(false)}else if(a==='rmk'){D.calls.splice(+b.dataset.i,1);save();render(false)}
+else if(a==='clr'){D.tasks=D.tasks.filter(t=>!t.d);save();render(false)}
+else if(a==='pick')$('#xf').click();
+else if(a==='pz'){rowsToContacts($('#pz').value.split(/\r?\n/).map(l=>l.includes('\t')?l.split('\t'):l.split(',')));render(false);toast(PEND.length?PEND.length+' new contacts found':'No new contacts found')}
+else if(a==='imp'){const n=PEND.length,cn=D.countOut!==false;D.calls=PEND.concat(D.calls);if(cn)D.week.sent[6]+=n;PEND=[];DUP=0;save();render(false);toast(n+' contacts added'+(cn?' and counted in outreach':''))}
+else if(a==='pcl'){PEND=[];DUP=0;render(false)}
+else if(a==='cm'){calM=new Date(calM.getFullYear(),calM.getMonth()+(+b.dataset.d),1);render(false)}
+else if(a==='cd'){calSel=b.dataset.d;render(false)}
+else if(a==='ct'){calM=new Date();calSel=null;render(false)}
+else if(a==='ai')openAI();else if(a==='trk')openTrk()});
+let io2;
+function present(){const o=$('#ov'),W=D.week,sent=sum(W.sent),sl=(bg,body)=>`<div class="sl" style="--b2:${bg}"><div class="a">${body}</div></div>`,act=D.clients.filter(c=>c.st==='Active').length;
+o.innerHTML=`<button class="x" data-a="close">Close</button>`+sl('#0E0D0A',`<p>Growth plan prepared for</p><input class="ed" data-p="client" value="${esc(D.client)}" placeholder="Client name" aria-label="Client name"><p style="margin-top:24px">${esc(D.agency)}. Scroll or press the arrow keys.</p>`)
++D.svcs.map(s=>sl(s.col,`<h2>${esc(s.n)}</h2><p>${esc(s.t)}</p><div class="big">${fm(s.p,'$')}<small>${esc(s.u)}</small></div><ul>${s.b.split(',').filter(x=>x.trim()).map(x=>`<li>${esc(x.trim())}</li>`).join('')}</ul>${s.r?`<p><b>${esc(s.r)}</b></p>`:''}${s.link?`<a class="btn" href="${esc(url(s.link))}" target="_blank" rel="noopener">Get started</a>`:''}`)).join('')
++sl('#0E0D0A',`<h2>Our results</h2><div class="big">${num(act)} <small>active clients</small></div><div class="big">${num(sum(W.booked))} <small>calls booked this week</small></div><div class="big">${num(sent?Math.round(sum(W.replies)/sent*100):0,'%')} <small>average reply rate</small></div>`)
++sl('#C25A1E',`<h2>Ready when you are</h2><ul>${D.svcs.map(s=>`<li>${s.link?`<a style="color:#fff" href="${esc(url(s.link))}" target="_blank" rel="noopener">${esc(s.n)}</a>`:esc(s.n)} · ${fm(s.p,'$')}${esc(s.u)}</li>`).join('')}</ul><p>${esc(D.agency)}</p>`);
+o.classList.add('open');o.scrollTop=0;document.body.style.overflow='hidden';o.querySelector('.x').focus();
+io2=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('in',e.isIntersecting);if(e.isIntersecting)count2(e.target)}),{root:o,threshold:.55});o.querySelectorAll('.sl').forEach(s=>io2.observe(s))}
+function count2(el){el.querySelectorAll('.num').forEach(n=>{const t=+n.dataset.n,f=n.dataset.f;if(RM||!t)return;const s=performance.now();(function st(now){const p=Math.min(1,(now-s)/900);n.textContent=fm(Math.round(t*p),f);if(p<1)requestAnimationFrame(st)})(s)})}
+function closeP(){const o=$('#ov');o.classList.remove('open');o.innerHTML='';document.body.style.overflow='';io2&&io2.disconnect()}
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;$('#prog').style.width=(h>0?scrollY/h*100:0)+'%';if(!RM)$('#bg').style.transform='translateY('+(-Math.min(scrollY*.05,40))+'px) scale(1.12)'},{passive:true});
+const AIH=[];let aiBusy=false;
+const AIS='You are the help assistant built into '+'the agency dashboard of someone who runs a small marketing agency selling services like AI receptionists, ads and local SEO to local businesses. Help with how to use the dashboard, cold call openers and scripts, objection handling, follow-up emails and texts, and what to focus on based on the numbers. Dashboard features: Home (outreach, calls, replies, revenue goal gauge, business score, tasks, calendar), Clients, Cold calling (add contacts, import Excel or CSV, or paste rows from Google Sheets, call script), Outreach (weekly numbers and campaigns), Services (prices, GoHighLevel links, customer presentation). Be concise, practical and friendly. Plain text only, no markdown symbols.';
+function aiSnap(){const W=D.week,mrr=D.clients.filter(c=>c.st==='Active').reduce((a,c)=>a+c.val,0);return 'Dashboard snapshot (aggregate numbers only): monthly revenue $'+mrr+' of $'+D.goal+' goal; active clients '+D.clients.filter(c=>c.st==='Active').length+'; open leads '+D.clients.filter(c=>c.st==='Lead').length+'; calls today '+W.calls[6]+' of '+D.target+' target; calls this week '+sum(W.calls)+'; messages sent this week '+sum(W.sent)+'; replies '+sum(W.replies)+'; calls booked this week '+sum(W.booked)+'; contacts still to call '+D.calls.filter(c=>c.out==='To call').length+'; services: '+D.svcs.map(s=>s.n+' $'+s.p+s.u).join(', ')+'.'}
+function aiMsg(r,t){const d=document.createElement('div');d.className='mg '+r;d.textContent=t;$('#aim').appendChild(d);$('#aim').scrollTop=1e9;return d}
+async function aiSend(q){q=(q||'').trim();if(!q||aiBusy)return;let s=null;try{s=window.claude&&claude.use?await claude.use('sample'):null}catch(e){}
+if(!s){aiMsg('u',q);aiMsg('a','AI help is not available here. It works when you open this dashboard in Claude and allow it to ask Claude.');return}
+aiBusy=true;$('#aiq').value='';aiMsg('u',q);AIH.push({role:'user',content:q});const b=aiMsg('a','Thinking…');
+try{const r=await s([{role:'user',content:AIS+'\n\n'+aiSnap()+'\n\n'+AIH[0].content}].concat(AIH.slice(1)),{cache:false,onText:({text})=>{b.textContent=text;$('#aim').scrollTop=1e9}});const t=r&&r.text||'';if(t){b.textContent=t;AIH.push({role:'assistant',content:t})}else{AIH.pop();b.textContent='No answer came back. Try rephrasing.'}}
+catch(e){AIH.pop();b.textContent=e&&e.code==='not_granted'?'AI help needs your permission. Send your message again and allow it when asked.':e&&e.code==='rate_limited'?'Too many requests in a row. Wait a minute and try again.':'Something went wrong getting an answer. Try again.'}
+aiBusy=false;$('#aim').scrollTop=1e9}
+function openAI(){$('#ai').classList.add('open');if(!$('#aim').children.length)aiMsg('a','Hi '+D.name+'. Ask me how to use the dashboard, or for help with cold call scripts, follow-ups and what to focus on today.');$('#aiq').focus()}
+function closeAI(){$('#ai').classList.remove('open');const b=document.querySelector('[data-a="ai"]');if(b)b.focus()}
+$('#aic').innerHTML=['What should I focus on today?','Write a cold call opener','Draft a follow-up text','How do I import a spreadsheet?'].map(t=>`<button type="button">${t}</button>`).join('');
+$('#aic').onclick=e=>{const b=e.target.closest('button');if(b)aiSend(b.textContent)};$('#ais').onclick=()=>aiSend($('#aiq').value);$('#aix').onclick=closeAI;
+$('#aiq').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();aiSend($('#aiq').value)}};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#ai').classList.contains('open'))closeAI()});
+const tmr=()=>dstr(new Date(Date.now()+864e5)),F=(k,l,r,t,v)=>({k,l,r,t,v});let TKT='call';
+const TKD=()=>({call:['Call made',[F('n','Name',1),F('co','Business'),F('o','Outcome',0,'sel',OUT.slice(1)),F('no','Note'),F('d','Booked date (if booked)',0,'date',tmr()),F('t','Booked time',0,'time','10:00')],'Log call'],contact:['Contact',[F('n','Name',1),F('co','Business'),F('ph','Phone')],'Add contact'],out:['Outreach',[F('s','Messages sent'),F('r','Replies'),F('b','Calls booked')],'Add to today'],client:['Client',[F('n','Business',1),F('co','Contact'),F('s','Service',0,'svc'),F('v','Monthly value ($)'),F('st','Status',0,'sel',ST)],'Add client'],task:['Task',[F('n','What needs doing',1)],'Add task']});
+const fld=f=>`<label>${f.l}${f.t==='sel'?`<select class="ed" name="${f.k}">${f.v.map(o=>`<option>${o}</option>`).join('')}</select>`:f.t==='svc'?`<select class="ed" name="${f.k}">${opts()}</select>`:`<input class="ed" name="${f.k}" type="${f.t||'text'}" value="${esc(f.v||'')}" ${f.r?'required':''}>`}</label>`;
+function trkRender(){const T=TKD();$('#trt').innerHTML=Object.keys(T).map(k=>`<button type="button" data-k="${k}" aria-pressed="${k===TKT}">${T[k][0]}</button>`).join('');$('#ftr').innerHTML=T[TKT][1].map(fld).join('')+`<button class="btn">${T[TKT][2]}</button>`}
+function trkFocus(){const i=document.querySelector('#ftr input,#ftr select');if(i)i.focus()}
+function openTrk(k){if(k)TKT=k;trkRender();$('#trk').classList.add('open');trkFocus()}
+function closeTrk(){$('#trk').classList.remove('open');const b=document.querySelector('[data-a="trk"]');if(b)b.focus()}
+function trkSubmit(d){const W=D.week,t=dstr(new Date()),n=x=>parseInt(String(x||'').replace(/\D/g,''),10)||0;let m='';
+if(TKT==='call'){const c={n:d.n,co:d.co,ph:'',out:d.o,note:d.no,cd:t};W.calls[6]++;if(d.o==='Booked'){W.booked[6]++;c.bd=d.d||tmr();c.bt=d.t||'10:00'}D.calls.unshift(c);m='Call logged'}
+else if(TKT==='contact'){D.calls.unshift({n:d.n,co:d.co,ph:d.ph,out:'To call',note:''});if(D.countOut!==false)W.sent[6]++;m='Contact added to call list'}
+else if(TKT==='out'){W.sent[6]+=n(d.s);W.replies[6]+=n(d.r);W.booked[6]+=n(d.b);m='Added to today’s outreach'}
+else if(TKT==='client'){D.clients.unshift({n:d.n,co:d.co,svc:d.s,st:d.st,val:parseFloat(d.v)||0});m='Client added'}
+else{D.tasks.unshift({t:d.n,d:0});m='Task added'}
+save();render(false);closeTrk();toast(m)}
+$('#trt').onclick=e=>{const b=e.target.closest('button');if(b){TKT=b.dataset.k;trkRender();trkFocus()}};$('#trx').onclick=closeTrk;$('#trk').onclick=e=>{if(e.target.id==='trk')closeTrk()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#trk').classList.contains('open'))closeTrk()});
+roll();render(true);
+</script>
+</body>
+</html>
